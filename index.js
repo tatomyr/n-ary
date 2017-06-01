@@ -35,6 +35,8 @@ const nAry = (base = 2) => {
   // Convert (base)-ary number to decimal:
   const index = vector => vector.reduce((sum, item, i) => sum + item * Math.pow(base, i), 0);
 
+  const sumOfDigits = vector => vector.reduce((sum, item) => sum + +item, 0);
+
   return {
     base,
     range,
@@ -44,5 +46,6 @@ const nAry = (base = 2) => {
     random,
     randomSet,
     index,
+    sumOfDigits,
   };
 }

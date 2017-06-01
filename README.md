@@ -21,3 +21,5 @@ The `nAry(base)` provides a bunch of properties and methods to interact with (ba
 * `nAry(base).randomSet(length)(count)` returns a (count)-large set of random (base)-ary (length)-large vectors
 
 * `nAry(base).index(vector)` coerce (base)-ary number represented by (vector) to the regular decimal number
+
+* `nAry(base).sumOfDigits(vector)` returns sum of all digits of (vector) 

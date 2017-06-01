@@ -1,54 +1,48 @@
-// const nAry = base => ({
-//   next: vector => {
-//     const index = vector.findIndex(digit => digit < base);
-//     return index === -1
-//       ? Array(vector.length).fill(0)
-//       : [...Array(index).fill(0), vector[index] + 1, ...vector.filter((_, i) => i > index)];
-//   },
-//
-//   all: length => {
-//     console.log(nAry(base));
-//     const vectors = [Array(length).fill(0)];
-//     for (let i = 1; i < Math.pow((base + 1), length); i++) {
-//       vectors.push(nAry(base).next(vectors[i - 1]));
-//     }
-//     return vectors;
-//   }
-// });
+const nAry = (base = 2) => {
+  // Base aka arity:
+  const range = base - 1;
 
-const nAry = base => {
-  const Zero = length => Array(length).fill(0);
+  // Zero vector:
+  const zero = length => Array(length).fill(0);
 
+  // (base)-ary incrementation:
   const next = vector => {
-    const index = vector.findIndex(digit => digit < base);
+    const index = vector.findIndex(digit => digit < range);
     return index === -1 ? (
-      Zero(vector.length)
+      zero(vector.length)
     ) : [
-      ...Zero(index),
+      ...zero(index),
       vector[index] + 1,
       ...vector.filter((_, i) => i > index)
     ];
   }
 
+  // Brute force:
   const all = length => {
-    const vectors = [Zero(length)];
-    for (let i = 1; i < Math.pow(base + 1, length); i++) {
+    const vectors = [zero(length)];
+    for (let i = 1; i < Math.pow(base, length); i++) {
       vectors.push(next(vectors[i - 1]));
     }
     return vectors;
   }
 
-  const random = length => Zero(length).map(digit => Math.floor(Math.random() * (base + 1)));
+  // A random vector:
+  const random = length => zero(length).map(digit => Math.floor(Math.random() * base));
 
-  const randomSet = length => count => Zero(count).map(() => random(length));
+  // Set of (count) random vectors:
+  const randomSet = length => count => zero(count).map(() => random(length));
 
-  // const index =
+  // Convert (base)-ary number to decimal:
+  const index = vector => vector.reduce((sum, item, i) => sum + item * Math.pow(base, i), 0);
 
   return {
-    Zero,
+    base,
+    range,
+    zero,
     next,
     all,
     random,
     randomSet,
+    index,
   };
-};
+}

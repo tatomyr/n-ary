@@ -5,8 +5,14 @@ const nAry = (base = 2) => {
   // Zero vector:
   const zero = length => Array(length).fill(0);
 
+  // The last vector:
+  const last = length => Array(length).fill(range);
+
+  // A random vector:
+  const random = length => zero(length).map(digit => Math.floor(Math.random() * base));
+
   // (base)-ary incrementation:
-  const next = vector => {
+  const inc = vector => {
     const index = vector.findIndex(digit => digit < range);
     return index === -1 ? (
       zero(vector.length)
@@ -21,13 +27,24 @@ const nAry = (base = 2) => {
   const all = length => {
     const vectors = [zero(length)];
     for (let i = 1; i < Math.pow(base, length); i++) {
-      vectors.push(next(vectors[i - 1]));
+      vectors.push(inc(vectors[i - 1]));
     }
     return vectors;
   }
 
-  // A random vector:
-  const random = length => zero(length).map(digit => Math.floor(Math.random() * base));
+  // Generates just the n-ary verge of the (length)-dimension table:
+  // const verge = length => {
+  //   const vectors = [last(length)];
+  //   for (let i = 1; i < Math.pow(base, length) - Math.pow(range, length); i++) {
+  //     const vector = inc(vectors[i - 1]);
+  //
+  //     console.log(Math.pow(base, length) - Math.pow(range, length), vector);
+  //
+  //     if (vector.some(digit => digit === range)) vectors.push(vector);
+  //   }
+  //   return vectors;
+  // }
+  const verge = length => all(length).filter(vector => vector.some(digit => digit === range));
 
   // Set of (count) random vectors:
   const randomSet = length => count => zero(count).map(() => random(length));
@@ -41,9 +58,11 @@ const nAry = (base = 2) => {
     base,
     range,
     zero,
-    next,
-    all,
+    last,
     random,
+    inc,
+    all,
+    verge,
     randomSet,
     index,
     sumOfDigits,

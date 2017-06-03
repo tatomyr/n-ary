@@ -1,0 +1,13 @@
+.example-desc {
+  font-weight: bold;
+  padding: 5px 0;
+}
+
+.example {
+  font-family: monospace;
+  padding: 0 20px;
+}
+
+li {
+  list-style: none;
+}

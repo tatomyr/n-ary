@@ -1,5 +1,5 @@
 const nAry = (base = 2) => {
-  // Base aka arity:
+  // Max each digit value:
   const range = base - 1;
 
   // Zero vector:
@@ -54,6 +54,9 @@ const nAry = (base = 2) => {
 
   const sumOfDigits = vector => vector.reduce((sum, item) => sum + +item, 0);
 
+  // Returns all vectors with specified sum of digits value
+  const sumEquals = length => value => all(length).filter(vector => sumOfDigits(vector) === value);
+
   return {
     base,
     range,
@@ -66,5 +69,6 @@ const nAry = (base = 2) => {
     randomSet,
     index,
     sumOfDigits,
+    sumEquals,
   };
 }

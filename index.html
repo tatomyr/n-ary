@@ -98,6 +98,19 @@
         </div>
       </p>
 
+      <p class="">
+        <div class="example-desc">All vectors with sum of digits equal 2:</div>
+        <div class="example">
+          nAry(<b>{{base}}</b>).sumEquals(<b>{{length}}</b>)(<b>2</b>) =
+          <b>
+            <ul>
+              <li v-for="vector of sumEquals">{{vector}}</li>
+            </ul>
+          </b>
+        </div>
+      </p>
+
+
     </div>
 
 
@@ -125,6 +138,7 @@
           randomSet: nAry(query.base).randomSet(query.length)(5),
           index: nAry(query.base).index(random),
           sumOfDigits: nAry(query.base).sumOfDigits(random),
+          sumEquals: nAry(query.base).sumEquals(query.length)(2),
         },
         computed: {
 

@@ -17,11 +17,13 @@ li {
   text-decoration: none;
   color: grey;
 
+  transform: scale(0.75);
+
   transition: transform 0.5s, color 0.5s;
 }
 
 .hash:hover {
   color: #101010;
 
-  transform: rotate(7deg);
+  transform: scale(1);
 }

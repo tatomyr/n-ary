@@ -1,3 +1,4 @@
+// Radix?
 const nAry = (base = 2) => (length = 1) => {
   // Max each digit value:
   const range = base - 1;
@@ -60,6 +61,8 @@ const nAry = (base = 2) => (length = 1) => {
   // Generates chunks of datasets
   // const chunk = maxChunkCount => ...
 
+  // Coerces base-10 number to (base)-ary (length)-large vector
+  // nAry(base)(length).coerce(base10)
 
   return {
     base,

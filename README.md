@@ -1,10 +1,10 @@
 # n-ary library
 
-The `nAry(base)(length)` provides a bunch of properties and methods to interact with (base)-ary (length)-large number as a vector (or JavaScript array).
+The `nAry(base)(length)` provides a bunch of properties and methods to interact with (base)-ary (length)-large numbers or vectors (actually represented by JavaScript arrays).
 
 ### Properties
 
-* `nAry(base)(length).base` simply returns the base of a number
+* `nAry(base)(length).base` simply returns the base (arity) of a vector
 
 * `nAry(base)(length).length` simply returns the count of digits in a number
 

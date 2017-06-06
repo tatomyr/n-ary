@@ -10,29 +10,33 @@
     </script>
   </head>
   <body>
-    <h1>n-ary vectors (long numbers)</h1>
+    <h1><a href="" class="hash">↻</a> n-ary vectors (long numbers)</h1>
+
 
     <div id="vm" class="">
-      {{message}}
       <form id="form">
         <input v-model="base" type="number" name="base" placeholder="base" value="2" min="1">
         <input v-model="length" type="number" name="length" placeholder="length" value="1" min="0">
         <input type="submit" value="ok">
       </form>
 
+      <h2 id="properties"><a href="#properties" class="hash">#</a> properties</h2>
+
       <p class="">
         <div class="example-desc">Zero vector:</div>
         <div class="example">
-          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).zero() = <b>{{zero}}</b>
+          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).zero = <b>{{zero}}</b>
         </div>
       </p>
 
       <p class="">
         <div class="example-desc">Last vector:</div>
         <div class="example">
-          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).last() = <b>{{last}}</b>
+          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).last = <b>{{last}}</b>
         </div>
       </p>
+
+      <h2 id="methods"><a href="#methods" class="hash">#</a> methods</h2>
 
       <p class="">
         <div class="example-desc">Random vector:</div>
@@ -128,9 +132,8 @@
         data: {
           base: query.base,
           length: query.length,
-          message: 'Hello Vue!',
-          zero: nAry(query.base)(query.length).zero(),
-          last: nAry(query.base)(query.length).last(),
+          zero: nAry(query.base)(query.length).zero,
+          last: nAry(query.base)(query.length).last,
           random,
           inc: nAry(query.base)().inc(random),
           all: nAry(query.base)(query.length).all(),

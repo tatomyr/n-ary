@@ -11,3 +11,17 @@
 li {
   list-style: none;
 }
+
+.hash {
+  display: inline-block;
+  text-decoration: none;
+  color: grey;
+
+  transition: transform 0.5s, color 0.5s;
+}
+
+.hash:hover {
+  color: #101010;
+
+  transform: rotate(7deg);
+}

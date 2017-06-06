@@ -57,6 +57,25 @@ const nAry = (base = 2) => {
   // Returns all vectors with specified sum of digits value
   const sumEquals = length => value => all(length).filter(vector => sumOfDigits(vector) === value);
 
+  // Generates chunks of datasets.
+  // const chunk = length => maxChunkCount => ...
+
+  /*
+  // Length subfunction:
+  const length = length => {
+    const sumEquals = value => all(length).filter(vector => sumOfDigits(vector) === value);
+
+    return {
+      randomSet,
+      sumEquals,
+    };
+  }
+  */
+
+  /*
+    Or, maybe, we should type smth like: `nAry(base)(length || vector).inc()`
+  */
+
   return {
     base,
     range,

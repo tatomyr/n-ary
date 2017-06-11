@@ -18,7 +18,7 @@ The `nAry(base)(length)` provides a bunch of properties and methods to interact 
 
 * `nAry(base)(length).random()` returns random (length)-large vector, where each cell represents an appropriate digit of (base)-ary number
 
-* `nAry(base)([length]).inc(vector)` returns value next to the (vector). Simply, it's just an incrementation of (base)-ary number represented by (vector)
+* `nAry(base)([length]).inc(vector)` returns value next to the (vector). Simply, it's just an incrementation of (base)-ary number represented by (vector). If the `length` parameter isn't specified returns an empty array when trying to increment the `last` vector. Otherwise, returns `zero` vector.
 
 * `nAry(base)(length).all()` returns all unique variants of (length)-large (base)-ary vector realizations
 
@@ -27,6 +27,8 @@ The `nAry(base)(length)` provides a bunch of properties and methods to interact 
 * `nAry(base)(length).randomSet(count)` returns a (count)-large set of random (base)-ary (length)-large vectors
 
 * `nAry(base)([length]).index(vector)` coerces (base)-ary number represented by (vector) to the regular decimal number
+
+* `nAry(base)(length).fromDecimal(value)` coerces value as a base-10 number to (base)-ary (length)-large vector
 
 * `nAry(base)([length]).sumOfDigits(vector)` returns sum of all digits of (vector)
 

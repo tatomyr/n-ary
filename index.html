@@ -10,112 +10,121 @@
     </script>
   </head>
   <body>
-    <h1><a href="" class="hash">↻</a> n-ary vectors</h1>
+    <div class="wrapper">
+      <h1><a href="" class="refresh">↻</a> n-ary vectors</h1>
 
-    <div id="vm" class="">
-      <form id="form">
-        base:
-        <input v-model="base" type="number" name="base" placeholder="base" value="2" min="1">
-        length:
-        <input v-model="length" type="number" name="length" placeholder="length" value="1" min="0">
-        <input type="submit" value="ok">
-      </form>
+      <div id="vm" class="">
+        <form id="form">
+          base:
+          <input v-model="base" type="number" name="base" placeholder="base" value="2" min="1">
+          length:
+          <input v-model="length" type="number" name="length" placeholder="length" value="1" min="0">
+          <input type="submit" value="ok">
+        </form>
 
-      <h2 id="properties"><a href="#properties" class="hash">#</a> properties</h2>
+        <h2 id="properties"><a href="#properties" class="hash">#</a> properties</h2>
 
-      <p class="">
-        <div class="example-desc">Zero vector:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).zero = <b>{{zero}}</b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">Zero vector:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)(<b>{{length}}</b>).zero = <b>{{zero}}</b>
+          </div>
+        </p>
 
-      <p class="">
-        <div class="example-desc">Last vector:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).last = <b>{{last}}</b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">Last vector:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)(<b>{{length}}</b>).last = <b>{{last}}</b>
+          </div>
+        </p>
 
-      <h2 id="methods"><a href="#methods" class="hash">#</a> methods</h2>
+        <h2 id="methods"><a href="#methods" class="hash">#</a> methods</h2>
 
-      <p class="">
-        <div class="example-desc">Random vector:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).random() = <b>{{random}}</b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">Random vector:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)(<b>{{length}}</b>).random() = <b>{{random}}</b>
+          </div>
+        </p>
 
-      <p class="">
-        <div class="example-desc">Incremented vector:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)().inc(<b>{{random}}</b>) = <b>{{inc}}</b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">Incremented vector:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)().inc(<b>{{random}}</b>) = <b>{{inc}}</b>
+          </div>
+        </p>
 
-      <p class="">
-        <div class="example-desc">All possible vectors:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).all() =
-          <b>
-            <ul>
-              <li v-for="vector of all">{{vector}}</li>
-            </ul>
-          </b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">All possible vectors:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)(<b>{{length}}</b>).all() =
+            <b>
+              <ul>
+                <li v-for="vector of all">{{vector}}</li>
+              </ul>
+            </b>
+          </div>
+        </p>
 
-      <p class="">
-        <div class="example-desc">The only {{base}}-ary verge of a {{length}}-dimension table:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).verge() =
-          <b>
-            <ul>
-              <li v-for="vector of verge">{{vector}}</li>
-            </ul>
-          </b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">The only {{base}}-ary verge of a {{length}}-dimension table:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)(<b>{{length}}</b>).verge() =
+            <b>
+              <ul>
+                <li v-for="vector of verge">{{vector}}</li>
+              </ul>
+            </b>
+          </div>
+        </p>
 
-      <p class="">
-        <div class="example-desc">Set of 5 random vectors:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).randomSet(<b>5</b>) =
-          <b>
-            <ul>
-              <li v-for="vector of randomSet">{{vector}}</li>
-            </ul>
-          </b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">Set of 5 random vectors:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)(<b>{{length}}</b>).randomSet(<b>5</b>) =
+            <b>
+              <ul>
+                <li v-for="vector of randomSet">{{vector}}</li>
+              </ul>
+            </b>
+          </div>
+        </p>
 
-      <p class="">
-        <div class="example-desc">Coercing to decimal number:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)().index(<b>{{random}}</b>) = <b>{{index}}</b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">Coercing to decimal number:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)().index(<b>{{random}}</b>) = <b>{{index}}</b>
+          </div>
+        </p>
 
-      <p class="">
-        <div class="example-desc">Sum of vector digits:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)().sumOfDigits(<b>{{random}}</b>) = <b>{{sumOfDigits}}</b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">Coercing decimal number to vector:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)(<b>{{length}}</b>).fromDecimal(<b>7</b>) = <b>{{fromDecimal}}</b>
+          </div>
+        </p>
 
-      <p class="">
-        <div class="example-desc">All vectors with sum of digits equal 2:</div>
-        <div class="example">
-          nAry(<b>{{base}}</b>)(<b>{{length}}</b>).sumEquals(<b>2</b>) =
-          <b>
-            <ul>
-              <li v-for="vector of sumEquals">{{vector}}</li>
-            </ul>
-          </b>
-        </div>
-      </p>
+        <p class="">
+          <div class="example-desc">Sum of vector digits:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)().sumOfDigits(<b>{{random}}</b>) = <b>{{sumOfDigits}}</b>
+          </div>
+        </p>
+
+        <p class="">
+          <div class="example-desc">All vectors with sum of digits equals 3:</div>
+          <div class="example">
+            nAry(<b>{{base}}</b>)(<b>{{length}}</b>).sumEquals(<b>3</b>) =
+            <b>
+              <ul>
+                <li v-for="vector of sumEquals">{{vector}}</li>
+              </ul>
+            </b>
+          </div>
+        </p>
 
 
+      </div>
     </div>
 
 
@@ -141,8 +150,9 @@
           verge: nAry(query.base)(query.length).verge(),
           randomSet: nAry(query.base)(query.length).randomSet(5),
           index: nAry(query.base)().index(random),
+          fromDecimal: nAry(query.base)(query.length).fromDecimal(7),
           sumOfDigits: nAry(query.base)().sumOfDigits(random),
-          sumEquals: nAry(query.base)(query.length).sumEquals(2),
+          sumEquals: nAry(query.base)(query.length).sumEquals(3),
         },
         computed: {
 

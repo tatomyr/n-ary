@@ -1,18 +1,40 @@
 // Radix?
-const nAry = (base = 2) => (length = 1) => {
-  // Max each digit value:
+/**
+ * The nAry lib provides methods to deal with n-ary vectors.
+ * You can think of them as of base-n numbers but with fixed length.
+ * Those vectors could help to linearize nested loops
+ * (especially it's helpful when an amount of subsidiaries is not specified beforehand).
+ * To use this library features you have to type something like 'nAry(<base>)([<length>]).<someMethod>([<parameter>])'
+ *
+ * @param {number} base - The base (or radix or arity in another words) of vector.
+ * @param {number} length - Amount of digits of vector.
+ */
+const nAry = (base = 2) => (length = 0) => {
+  /**
+   * Max value of each digit.
+   */
   const range = base - 1;
 
-  // Zero vector:
+  /**
+   * Zero vector.
+   */
   const zero = Array(length).fill(0);
 
-  // The last vector:
+  /**
+   * The last vector.
+   */
   const last = Array(length).fill(range);
 
-  // A random vector:
+  /**
+   * A random vector.
+   */
   const random = () => zero.map(digit => Math.floor(Math.random() * base));
 
-  // (base)-ary incrementation:
+  /**
+   * A (base)-ary incrementation of a (vector)
+   *
+   * @param {array} vector - A vector to be incremented.
+   */
   const inc = (vector) => {
     const index = vector.findIndex(digit => digit < range);
     return index === -1 ? (
@@ -24,7 +46,9 @@ const nAry = (base = 2) => (length = 1) => {
     ];
   }
 
-  // Brute force:
+  /**
+   * Brute force.
+   */
   const all = () => {
     const vectors = [zero];
     for (let i = 1; i < Math.pow(base, length); i++) {
@@ -33,7 +57,9 @@ const nAry = (base = 2) => (length = 1) => {
     return vectors;
   }
 
-  // Generates just the (base)-ary verge of the (length)-dimension table:
+  /**
+   * Generates just the (base)-ary verge of the (length)-dimension table.
+   */
   // const verge = length => {
   //   const vectors = [last(length)];
   //   for (let i = 1; i < Math.pow(base, length) - Math.pow(range, length); i++) {
@@ -47,22 +73,38 @@ const nAry = (base = 2) => (length = 1) => {
   // }
   const verge = () => all().filter(vector => vector.some(digit => digit === range));
 
-  // Set of (count) random vectors:
+  /**
+   * Set of (count) random vectors.
+   *
+   * @param {number} count - Count of vectors to output.
+   */
   const randomSet = count => Array(count).fill().map(() => random());
 
-  // Converts (base)-ary number to decimal:
+  /**
+   * Converts (base)-ary vector as a number to decimal.
+   */
   const index = vector => vector.reduce((sum, item, i) => sum + item * Math.pow(base, i), 0);
+
+  /**
+   * Coerces base-10 number to (base)-ary (length)-large vector.
+   *
+   * @param {number} value - Decimal number to convert.
+   */
+  const fromDecimal = (value = 0) => Array(value).fill().reduce(prev => inc(prev), zero);
 
   const sumOfDigits = vector => vector.reduce((sum, item) => sum + +item, 0);
 
-  // Returns all vectors with specified sum of digits value
+  /**
+   * Returns all vectors with specified sum of digits value.
+   *
+   * @param {number} value - Decimal number, which the sum of digits must be equals to.
+   */
   const sumEquals = value => all().filter(vector => sumOfDigits(vector) === value);
 
-  // Generates chunks of datasets
+  /**
+   * Generates chunks of datasets.
+   */
   // const chunk = maxChunkCount => ...
-
-  // Coerces base-10 number to (base)-ary (length)-large vector
-  // nAry(base)(length).coerce(base10)
 
   return {
     base,
@@ -76,6 +118,7 @@ const nAry = (base = 2) => (length = 1) => {
     verge,
     randomSet,
     index,
+    fromDecimal,
     sumOfDigits,
     sumEquals,
   };

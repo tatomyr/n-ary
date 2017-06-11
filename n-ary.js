@@ -28,7 +28,7 @@ const nAry = (base = 2) => (length = 0) => {
   /**
    * A random vector.
    */
-  const random = () => zero.map(digit => Math.floor(Math.random() * base));
+  const random = () => zero.map(() => Math.floor(Math.random() * base));
 
   /**
    * A (base)-ary incrementation of a (vector)

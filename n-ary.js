@@ -50,7 +50,7 @@ const nAry = (base = 2) => (length = 1) => {
   // Set of (count) random vectors:
   const randomSet = count => Array(count).fill().map(() => random());
 
-  // Convert (base)-ary number to decimal:
+  // Converts (base)-ary number to decimal:
   const index = vector => vector.reduce((sum, item, i) => sum + item * Math.pow(base, i), 0);
 
   const sumOfDigits = vector => vector.reduce((sum, item) => sum + +item, 0);

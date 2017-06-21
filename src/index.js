@@ -123,3 +123,5 @@ const nAry = (base = 2) => (length = 0) => {
     sumEquals,
   };
 }
+
+module.exports = nAry;

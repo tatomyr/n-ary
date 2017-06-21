@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>n-ary vectors</title>
     <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
-    <script src="n-ary.babel.js"></script>
+    <script src="./lib/n-ary.babel.js"></script>
     <script src="https://unpkg.com/vue"></script>
     </script>
   </head>
@@ -129,11 +129,14 @@
 
     <script>
       const query = location.search.slice(1).split('&').reduce((prev, item) =>
-      // ({ ...prev, item.split('=')[0]: item.split('=')[1] })
+        // ({ ...prev, item.split('=')[0]: item.split('=')[1] })
         Object.assign(prev, { [item.split('=')[0]]: +item.split('=')[1] }),
         {}
       );
       console.log(location.search,query);
+
+// !!!
+try {
       const random = nAry(query.base)(query.length).random();
 
       var vm = new Vue({
@@ -161,6 +164,9 @@
         },
       });
 
+} catch (err) {
+  console.log('err--->', err);
+}
 
     </script>
   </body>

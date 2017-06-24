@@ -1,1 +1,6 @@
 node_modules/
+index.html
+style.css
+tests/
+.webpack.config.json
+.babelrc

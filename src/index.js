@@ -33,6 +33,10 @@ const nAry = (base = 2) => (length = 0) => {
   /**
    * A (base)-ary incrementation of a (vector)
    *
+   * If you do not specify the (length) parameter in closure function,
+   * the increment of the last vector returns an empty vector. ('[]').
+   * Otherwise it returns a zero vector.
+   *
    * @param {array} vector - A vector to be incremented.
    */
   const inc = (vector) => {

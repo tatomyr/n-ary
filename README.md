@@ -2,6 +2,15 @@
 
 The `nAry(base)(length)` provides a bunch of properties and methods to interact with (base)-ary (length)-large numbers or vectors (actually represented by JavaScript arrays).
 
+### Installation
+
+* Include this file directly in `html` file as script: `lib/n-ary.babel.js`
+
+* Install the package via `npm` `$ npm i -S n-ary` (??) and import as ES6 module:
+```javascript
+import nAry from 'n-ary'
+```
+
 ### Properties
 
 * `nAry(base)(length).base` simply returns the base (arity) of a vector
@@ -33,3 +42,7 @@ The `nAry(base)(length)` provides a bunch of properties and methods to interact 
 * `nAry(base)([length]).sumOfDigits(vector)` returns sum of all digits of (vector)
 
 * `nAry(base)(length).sumEquals(value)` returns all variants of (base)-ary (length)-large vectors with specified sum of digits
+
+### Examples
+
+Find use samples [here](https://tatomyr.github.io/n-ary)

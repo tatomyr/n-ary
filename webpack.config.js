@@ -1,6 +1,5 @@
 var webpack = require('webpack');
 var path = require('path');
-var libraryName = 'n-ary';
 
 var config = {
   entry: __dirname + '/src/index.js',
@@ -8,9 +7,9 @@ var config = {
   output: {
     path: __dirname + '/lib',
     // publicPath: '/assets/',
-    filename: libraryName + '.babel.js',
+    filename: 'n-ary.babel.js',
     // This part is dedicated to create a proper module:
-    library: libraryName,
+    library: 'nAry',
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
